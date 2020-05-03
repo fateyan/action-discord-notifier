@@ -14,7 +14,7 @@ const escapeMd = (str) => str.replace(/([\[\]\\`\(\)])/g, '\\$1')
 const octokit = new github.GitHub(github.token)
 const commits = github.context.commits.map(i => ` - [\\[${i.sha}\\]](${i.url}) ${escapeMd(i.message)} - by ${i.author.name}`)
 
-if (!co mmits.length) {
+if (!commits.length) {
   return
 }
 
