@@ -1,0 +1,15 @@
+name: Discord Notifier
+description: Get notification on discord.
+inputs:
+  webhook:
+    description: A full discord webhook url
+    required: true
+  message-title:
+    description: Message title
+output:
+  result:
+    description: Webhook result
+runs:
+  using: node12
+  main: index.js
+

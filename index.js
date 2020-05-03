@@ -1,0 +1,41 @@
+const axios = require('axios')
+
+const core = require('@actions/core')
+const github = require('@actions/github')
+
+const webhook = core.getInput('webhook')
+
+if (!/https:\/\/discord\.com\/api\/webhooks\/\d+?\/.+/i.exec(webhook)) {
+  core.setFailed('The given discord webhook url is invalid. Please unsure you give a **full** url that start with "https://discord.com/api/webhooks"')
+}
+
+const escapeMd = (str) => str.replace(/([\[\]\\`\(\)])/g, '\\$1')
+
+const octokit = new github.GitHub(github.token)
+const commits = github.context.commits.map(i => ` - [\\[${i.sha}\\]](${i.url}) ${escapeMd(i.message)} - by ${i.author.name}`)
+
+if (!co mmits.length) {
+  return
+}
+
+const payload = {
+  content: '',
+  embeds: [
+    {
+      title: core.getInput('message-title') || 'Commits received',
+      description: commits.join('\n')
+    }
+  ]
+}
+
+axios
+  .post(webhook, payload)
+  .then((res) => {
+    core.debug(res)
+
+    core.setOutput('result', 'Webhook sent')
+  })
+  .catch((err) => {
+    core.debug(err)
+    core.setFailed(`Post to webhook failed, ${err}`)
+  })

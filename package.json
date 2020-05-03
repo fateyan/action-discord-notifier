@@ -1,0 +1,28 @@
+{
+  "name": "@binotaliu/action-discord-notifier",
+  "version": "0.1.0",
+  "description": "Use discord webhook to get notification about commits.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/binotaliu/action-discord-notifier.git"
+  },
+  "keywords": [
+    "github-actions",
+    "discord"
+  ],
+  "author": "BinotaLIU <me@binota.org>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/binotaliu/action-discord-notifier/issues"
+  },
+  "homepage": "https://github.com/binotaliu/action-discord-notifier#readme",
+  "dependencies": {
+    "@actions/core": "^1.2.4",
+    "@actions/github": "^2.1.1",
+    "axios": "^0.19.2"
+  }
+}
