@@ -11,11 +11,7 @@ if (!/https:\/\/discordapp\.com\/api\/webhooks\/\d+?\/.+/i.exec(webhook)) {
 
 const escapeMd = (str) => str.replace(/([\[\]\\`\(\)])/g, '\\$1')
 
-if (!github.context.commits instanceof Array) {
-  return
-}
-
-const commits = github.context.commits.map(i => ` - [\\[${i.sha}\\]](${i.url}) ${escapeMd(i.message)} - by ${i.author.name}`)
+const commits = github.context.payload.commits.map(i => ` - [\\[${i.sha}\\]](${i.url}) ${escapeMd(i.message)} - by ${i.author.name}`)
 
 if (!commits.length) {
   return
