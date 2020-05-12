@@ -17,7 +17,7 @@ Message sent.
 ## Example usage
 
 ```yaml
-uses: binotaliu/action-discord-notifier@v0.1.0
+uses: binotaliu/action-discord-notifier@v1.2.0
 with:
   webhook: https://discordapp.com/api/00000000000/secret
 ```
