@@ -1,5 +1,8 @@
 name: Discord Notifier
 description: Get notification on discord.
+branding:
+  color: blue
+  icon: message-square
 inputs:
   webhook:
     description: A full discord webhook url
