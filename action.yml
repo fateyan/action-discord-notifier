@@ -14,5 +14,4 @@ output:
     description: Webhook result
 runs:
   using: node12
-  main: index.js
-
+  main: dist/index.js
