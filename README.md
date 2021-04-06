@@ -21,7 +21,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - uses: binotaliu/action-discord-notifier@v1
+      - uses: fateyan/action-discord-notifier@v1
         with:
           message-title: New Commits Pushed
           webhook: https://discordapp.com/api/00000000000/secret
